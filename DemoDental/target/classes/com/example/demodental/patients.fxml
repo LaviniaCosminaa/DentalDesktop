@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" prefHeight="650.0" prefWidth="950.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demodental.PatientsController">
+   <children>
+      <TabPane prefHeight="650.0" prefWidth="950.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="See all patients">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="patientsTable" layoutY="1.0" prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #9ceaef;">
+                          <columns>
+                             <TableColumn fx:id="id" prefWidth="55.19998246431351" text="ID" />
+                             <TableColumn fx:id="patientName" minWidth="9.60003662109375" prefWidth="337.5999870300293" text="NAME" />
+                             <TableColumn fx:id="age" prefWidth="121.60003662109375" text="AGE" />
+                             <TableColumn fx:id="gender" minWidth="0.0" prefWidth="136.0" text="GENDER" />
+                             <TableColumn fx:id="phoneNumber" prefWidth="299.2000732421875" text="PHONE NUMBER" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="See all medical records">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="medrecordsTable" layoutY="-2.0" prefHeight="626.0" prefWidth="949.0" style="-fx-background-color: #9ceaef;">
+                          <columns>
+                            <TableColumn fx:id="idMR" prefWidth="40.79998856782913" text="ID" />
+                            <TableColumn fx:id="allergies" prefWidth="140.79998397827148" text="ALLERGIES" />
+                              <TableColumn fx:id="treatment" prefWidth="212.8000030517578" text="TREATMENT" />
+                              <TableColumn fx:id="ltdate" prefWidth="172.0" text="LAST TREATMENT DATE" />
+                              <TableColumn fx:id="otherSurgery" prefWidth="213.60003662109375" text="OTHER SURGERY" />
+                              <TableColumn fx:id="vices" prefWidth="174.4000244140625" text="VICES" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab text="Add patient">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #9ceaef;">
+                     <children>
+                        <GridPane layoutY="1.0" prefHeight="600.0" prefWidth="950.0" style="-fx-background-color: #9ceaef;">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="301.80000534057615" minHeight="10.0" prefHeight="287.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="489.6" minHeight="10.0" prefHeight="313.0" vgrow="SOMETIMES" />
+                              <RowConstraints />
+                          </rowConstraints>
+                           <children>
+                              <TextField fx:id="nameAdd" promptText="LAST_NAME FIRST_NAME" style="-fx-background-color: #F0F0E1;">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" top="-80.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="AddButton" mnemonicParsing="false" onAction="#AddPatientButton" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #E4FFE1; -fx-border-color: black;" text="Add" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="350.0" top="260.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <TextField fx:id="genderAdd" maxWidth="435.0" prefWidth="100.0" promptText="GENDER(M/F)" style="-fx-background-color: #F0F0E1;">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="105.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="phoneAdd" promptText="PHONE NUMBER" style="-fx-background-color: #F0F0E1;">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" top="195.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="allergiesAdd" promptText="ALLERGIES(Yes, .../No)" style="-fx-background-color: #F0F0E1;" GridPane.rowIndex="1">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" top="-150.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="lastTDateAdd" promptText="LAST TREATMENT DATE(dd/mm/yyyy)" style="-fx-background-color: #F0F0E1;" GridPane.rowIndex="1">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" top="50.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="vicesAdd" promptText="VICES(Yes, .../No)" style="-fx-background-color: #F0F0E1;" GridPane.rowIndex="1">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" top="150.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="treatmentAdd" promptText="ACTUAL TREATMENT(Yes, .../No)" style="-fx-background-color: #F0F0E1;" GridPane.rowIndex="1">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" top="-50.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="surgeryAdd" promptText="OTHER SURGERY(Yes, .../No)" style="-fx-background-color: #F0F0E1;" GridPane.rowIndex="1">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" top="250.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PERSONAL DATA">
+                                 <font>
+                                    <Font name="Calibri Bold Italic" size="25.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="-200.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TREATMENT INFORMATION" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Calibri Bold Italic" size="25.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="-240.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <TextField fx:id="hourAdd" promptText="HOUR(hh:mm)" style="-fx-background-color: #F0F0E1;" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" top="10.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FIRST CONSULTATION" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Calibri Bold Italic" size="25.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="-200.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <TextField fx:id="descriptionAdd" promptText="DESCRIPTION(.../-)" style="-fx-background-color: #F0F0E1;" GridPane.columnIndex="1">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" top="105.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="toothAdd" promptText="TOOTH" style="-fx-background-color: #F0F0E1;" GridPane.columnIndex="1">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" top="195.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="ageAdd" promptText="AGE" style="-fx-background-color: #F0F0E1;">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" top="15.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add photos " GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="19.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="180.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <TextField fx:id="dateAdd" promptText="DATE (dd/mm/yyyy)" style="-fx-background-color: #F0F0E1;" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Comic Sans MS Italic" size="12.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" top="-80.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label text="LAST_NAME   FIRST_NAME">
+                                 <font>
+                                    <Font name="Calibri Italic" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="-130.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="AGE">
+                                 <font>
+                                    <Font name="Calibri Italic" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="-30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="GENDER(M/F)">
+                                 <font>
+                                    <Font name="Calibri Italic" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="60.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="PHONE NUMBER">
+                                 <font>
+                                    <Font name="Calibri Italic" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="150.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="ACTUAL TREATMENT(Yes, .../No)" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Calibri Italic" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="-100.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="ALERGIES(Yes, .../No)" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Calibri Italic" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="-200.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="OTHER SURGERY(Yes, .../No)" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Calibri Italic" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="200.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="VICES(Yes, .../No)" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Calibri Italic" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="100.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="LAST TREATMENT DATE(dd/mm/yyyy)" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Calibri Italic" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="TOOTH" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Calibri Italic" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="150.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="DESCRIPTION(.../-)" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Calibri Italic" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="60.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="HOUR(hh:mm)" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Calibri Italic" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="-30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="DATE (dd/mm/yyyy)" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Calibri Italic" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" top="-130.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Find patient">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane gridLinesVisible="true" prefHeight="620.0" prefWidth="950.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="620.0" minHeight="10.0" prefHeight="620.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #9ceaef;">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SEARCH BY NAME" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Calibri Bold Italic" size="27.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="140.0" right="60.0" top="50.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <TextField fx:id="nameToSearch" promptText="LAST_NAME FIRST_NAME" style="-fx-background-color: #F0F0E1;">
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="50.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Label fx:id="messageResultName" prefHeight="55.0" prefWidth="435.0" style="-fx-border-color: black;" textAlignment="JUSTIFY">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="30.0" />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="detailsByName" prefHeight="280.0" prefWidth="435.0" style="-fx-border-color: black;" textAlignment="JUSTIFY">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </Label>
+                                    <HBox prefHeight="50.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="clearName" mnemonicParsing="false" onAction="#clearName" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #E4FFE1; -fx-border-color: black;" text="Clear">
+                                             <font>
+                                                <Font name="Calibri Bold" size="12.0" />
+                                             </font></Button>
+                                          <Button fx:id="searchByName" mnemonicParsing="false" onAction="#SearchByName" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #E4FFE1; -fx-border-color: black;" text="Search">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="Calibri Bold" size="12.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="235.0" top="20.0" />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #9ceaef;" GridPane.columnIndex="1">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SEARCH BY PHONE NUMBER">
+                                       <font>
+                                          <Font name="Calibri Bold Italic" size="27.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="80.0" right="60.0" top="50.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <TextField fx:id="phoneToSearch" promptText="PHONE NUMBER" style="-fx-background-color: #F0F0E1;">
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="50.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Label fx:id="messageResultPhone" prefHeight="55.0" prefWidth="435.0" style="-fx-border-color: black;" textAlignment="JUSTIFY">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="30.0" />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="detailsByPhone" prefHeight="280.0" prefWidth="435.0" style="-fx-border-color: black;" textAlignment="JUSTIFY">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </Label>
+                                    <HBox prefHeight="50.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="clearPhone" mnemonicParsing="false" onAction="#clearPhone" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #E4FFE1; -fx-border-color: black;" text="Clear">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="Calibri Bold" size="12.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="searchByPhone" mnemonicParsing="false" onAction="#SearchByPhone" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #E4FFE1; -fx-border-color: black;" text="Search">
+                                             <font>
+                                                <Font name="Calibri Bold" size="12.0" />
+                                             </font></Button>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets left="235.0" top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>
